@@ -16,6 +16,6 @@ import {ErrorMessageComponent} from "./error-message/error-message.component";
     AngularMaterialModule,
     FlexLayoutModule
   ],
-  declarations: [ErrorMessageComponent]
+  declarations: []
 })
 export class SharedModule { }
