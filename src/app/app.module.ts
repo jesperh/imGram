@@ -8,11 +8,13 @@ import { AngularMaterialModule } from './angular-material.module';
 import { HttpClientModule } from '@angular/common/http';
 import {FlexLayoutModule} from '@angular/flex-layout';
 import { ErrorMessageComponent } from './error-message/error-message.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    ErrorMessageComponent
+    ErrorMessageComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
