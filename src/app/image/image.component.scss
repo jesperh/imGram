@@ -1,0 +1,33 @@
+.photo-tile {
+
+}
+
+#load-more__container {
+  padding: 10px;
+}
+
+#view-mode__selector {
+  span {
+    padding: 5px;
+    cursor: pointer;
+  }
+}
+
+.selected {
+  mat-icon {
+    text-decoration: underline;
+  }
+}
+
+.photos-table {
+  width: 100%;
+}
+
+.table-text {
+  padding-left: 20px;
+}
+
+.view-icon {
+  cursor: pointer;
+  font-size: 2.5em;
+}

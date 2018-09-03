@@ -1,0 +1,22 @@
+@import "../../utilities/variables.scss";
+
+.image-card {
+  max-width: 600px;
+  margin: 20px auto;
+}
+
+.example-header-image {
+  background-size: cover;
+}
+
+.thumb-avatar {
+  max-height: 40px;
+  max-width: 40px;
+  overflow: hidden
+}
+
+.mat-menu-item {
+  .fa {
+    padding-right: 7px;
+  }
+}

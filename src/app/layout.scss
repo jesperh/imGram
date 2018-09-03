@@ -1,0 +1,94 @@
+@import "utilities/variables";
+
+// Not be used on itself,
+// but to be inherited with @extend
+.container-padding {
+  padding: 10px 15px;
+}
+
+#layout-wrapper {
+  max-width: 1280px;
+  width: 100%;
+}
+
+#above-header {
+  height: $above-header-height;
+  line-height: $above-header-height;
+}
+
+#header {
+  background-color: #3c3c3c;
+  color: white;
+  line-height: $header-height;
+  max-height: $header-height;
+  width:100%;
+  h1 {
+    font-family: 'Satisfy', cursive;
+    margin: 0;
+    vertical-align: middle;
+  }
+}
+
+#content-container {
+  background-color: $imgram-bg-color;
+  width:100%
+}
+
+#content {
+  @extend .container-padding;
+}
+
+.hover-hand {
+  cursor: pointer;
+}
+
+#some-big-white-area-above-footer {
+  height: 300px;
+}
+
+.imgram-ruler {
+  border: 0;
+  height: 1px;
+  background: #333;
+  background-image: linear-gradient(to right, #ccc, #333, #ccc);
+  width: 100%;
+}
+
+#some-big-white-area-above-footer {
+  .dummy-texts {
+    text-align: center;
+    :first-child {
+      font-family: 'Archivo Black', sans-serif;
+    }
+  }
+}
+
+#footer-container {
+  background-color: $imgram-bg-color;
+  width: 100%;
+}
+
+#footer {
+  @extend .container-padding;
+}
+
+#footer-links {
+  li {
+    list-style: none;
+  }
+  a {
+    text-decoration: none;
+    color: black;
+    &:hover {
+      color: $imgram-azure;
+    }
+  }
+}
+
+.imgram-error {
+  color: red;
+}
+
+.imgram-button-link {
+  color: black;
+}

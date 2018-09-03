@@ -1,0 +1,17 @@
+<div id="related-images__container">
+  <h2 id="related-images__heading">You might also like these images:</h2>
+  <div id="related-images" *ngIf="images?.length" fxLayout="row">
+
+    <div>
+      <div *ngFor="let rel of images" fxFlex="" class="related-image" routerLink="/images/details/{{rel.id}}">
+        <mat-card class="related-image__card">
+          <img [src]="getImageUrl(rel)" [title]="rel.title"/>
+          <div>{{rel?.title | slice:0:8}}</div>
+        </mat-card>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="images == null || images.length === 0">
+    <h2>Ooops, no related photos.</h2>
+  </div>
+</div>

@@ -1,0 +1,51 @@
+@import "../utilities/variables.scss";
+
+#welcome-heading {
+  color: $imgram-red;
+  font-size: 1.3em;
+  font-style: italic;
+}
+
+#welcome-text {
+  color: $imgram-red;
+  margin: 20px 0 20px 0;
+  text-align: center;
+  font-family: 'Luckiest Guy', cursive;
+  font-size: 1.4em;
+}
+
+#splash-images {
+  margin-bottom: 20px;
+}
+
+.splah-image {
+  img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+  text-decoration: none;
+  color: black;
+}
+
+.first-image, .third-image {
+  margin: 20px;
+  max-width: 20%;
+  //max-height: 230px;
+  @extend .splah-image;
+}
+
+.second-image {
+  max-width: 40%;
+  //max-height: 360px;
+  @extend .splah-image;
+}
+
+.white-on-black {
+  background-color: black;
+  color: white;
+}
+
+.splash-image__title {
+  text-align: center;
+}

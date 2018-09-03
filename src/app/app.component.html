@@ -1,0 +1,75 @@
+<div fxLayout="row" fxLayoutAlign="center none">
+  <div fxFlex=""></div>
+  <div id="layout-wrapper" fxLayout="column">
+
+    <div id="above-header" fxLayout="row">
+      <div>
+        <!--<span style="font-weight: bold">ENG</span>-->
+        <!--<span> | </span>-->
+        <!--<span>FI</span>-->
+      </div>
+      <div fxFlex=""></div>
+    </div>
+
+    <div id="header" fxLayout="row">
+      <div id="menu-toggler">
+        <button mat-icon-button [matMenuTriggerFor]="menu">
+          <mat-icon>menu</mat-icon>
+        </button>
+        <mat-menu #menu="matMenu">
+          <button routerLink="/images" mat-menu-item>
+            <mat-icon>photo_camera</mat-icon>
+            <span>Images</span>
+          </button>
+          <button routerLink="/albums" mat-menu-item>
+            <mat-icon>photo_album</mat-icon>
+            <span>Albums</span>
+          </button>
+
+        </mat-menu>
+      </div>
+      <div fxFlex="">
+      </div>
+      <h1 class="hover-hand" routerLink="/">imGram</h1>
+      <div fxFlex=""></div>
+    </div>
+
+    <div fxFlex="">
+      <div id="content-container">
+        <div id="content">
+          <router-outlet></router-outlet>
+          <hr class="imgram-ruler" />
+        </div>
+      </div>
+    </div>
+
+    <div id="footer-container">
+
+      <div id="footer" fxLayout="row" fxFlex="">
+        <div id="footer-links" fxFlex="">
+          <ul>
+            <li><a routerLink="/photos">Photos</a></li>
+            <li><a routerLink="/albums">Albums</a></li>
+          </ul>
+        </div>
+
+        <div fxFlex="" fxLayoutAlign="end center" class="social-media-icons">
+          <span>
+            <a href="#" class="fa fa-facebook"></a>
+          </span>
+          <span>
+            <a href="#" class="fa fa-twitter"></a>
+          </span>
+          <span>
+            <a href="#" class="fa fa-reddit"></a>
+          </span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <div fxFlex=""></div>
+</div>
+
+
+

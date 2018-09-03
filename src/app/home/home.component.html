@@ -1,0 +1,61 @@
+<div fxFlex="" fxLayout="column" id="splash">
+  <div>
+    <!--<h1 id="welcome-heading">The places for squares in different colors since 2018</h1>-->
+  </div>
+  <div *ngIf="!isLoading && !errorMsg">
+    <div id="welcome-text">Some very viral images of the day</div>
+    <div id="splash-images">
+      <div fxLayout="row" fxLayoutAlign="center center">
+        <a class="first-image" routerLink="/images/details/{{splashImages[0].id}}">
+          <div>
+            <div>
+              <img [src]="getThumbnail(splashImages[0])">
+            </div>
+            <div class="splash-image__title">
+              {{splashImages[0].title}}
+            </div>
+          </div>
+        </a>
+        <a class="second-image" routerLink="/images/details/{{splashImages[1].id}}">
+          <div class="">
+            <div>
+              <img [src]="getThumbnail(splashImages[1])">
+            </div>
+            <div class="splash-image__title">
+              {{splashImages[1].title}}
+            </div>
+          </div>
+        </a>
+        <a class="third-image" routerLink="/images/details/{{splashImages[2].id}}">
+          <div class="">
+            <div>
+              <img [src]="getThumbnail(splashImages[2])">
+            </div>
+            <div class="splash-image__title">
+              {{splashImages[2].title}}
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+    <div>
+      <a routerLink="/images"><h3>> Check more here!</h3></a>
+    </div>
+  </div>
+  <div *ngIf="isLoading">
+    <mat-spinner></mat-spinner>
+  </div>
+  <app-error-message [errorMsg]="errorMsg"></app-error-message>
+  <hr class="imgram-ruler"/>
+
+  <div>
+    <div id="some-big-white-area-above-footer" fxLayoutAlign="center center">
+      <div fxLayout="column" class="dummy-texts">
+        <div>BIG</div>
+        <div class="white-on-black">white</div>
+        <div>area</div>
+      </div>
+    </div>
+  </div>
+
+</div>

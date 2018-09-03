@@ -1,0 +1,23 @@
+#related-images__container {
+  background-color: ghostwhite;
+  margin-top: 20px;
+  padding: 10px;
+}
+
+#related-images {
+  overflow-x: scroll;
+  max-width: 100%;
+}
+
+#related-images__heading {
+}
+
+.related-image__card {
+  max-width: 150px;
+  text-align: center;
+}
+
+.related-image {
+  padding: 5px;
+  cursor: pointer;
+}

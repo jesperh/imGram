@@ -1,0 +1,22 @@
+@import "utilities/variables";
+
+#menu-toggler {
+  width: $header-height;
+  height: $header-height;
+  line-height: $header-height;
+  background-color: $imgram-blue;
+  color: $imgram-azure;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.social-media-icons {
+  span {
+    padding: 10px;
+  }
+  a {
+    font-size: 1.4em;
+    color: black;
+    text-decoration: none;
+  }
+}

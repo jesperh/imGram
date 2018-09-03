@@ -1,0 +1,53 @@
+<div fxLayout="column">
+  <div>
+    <button (click)="goBack()" mat-stroked-button>Back</button>
+  </div>
+  <div fxLayout="row" fxFill="" fxLayoutAlign="center none">
+
+    <div fxFlex="">
+      <mat-card class="image-card" *ngIf="!isLoading">
+        <mat-card-header>
+          <!--<div mat-card-avatar class="example-header-image">-->
+            <!--<div class="thumb-avatar" style="">-->
+              <!--&lt;!&ndash;<img [src]=""/>&ndash;&gt;-->
+            <!--</div>-->
+          <!--</div>-->
+          <mat-card-title>{{album.title}}</mat-card-title>
+          <mat-card-subtitle>Viewed: {{album.views}} times</mat-card-subtitle>
+        </mat-card-header>
+        <img mat-card-image [src]="imageSrc" [alt]="image.title">
+        <mat-card-content>
+          <p>
+            {{album.description}}
+          </p>
+        </mat-card-content>
+
+        <mat-card-actions>
+          <button mat-button id="menu-toggler" [matMenuTriggerFor]="menu">
+            <mat-icon>share</mat-icon>
+            SHARE
+          </button>
+          <mat-menu #menu="matMenu" id="share-menu">
+            <button routerLink="/images" mat-menu-item>
+              <i class="fa fa-facebook"></i>
+              <span> <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=www.google.fi">Share on Facebook</a></span>
+            </button>
+            <button mat-menu-item>
+              <i class="fa fa-twitter"></i>
+              <span> <a target="_blank" href="https://twitter.com/home?status=Check%20dis%20www.google.fi">Share on Twitter</a></span>
+            </button>
+          </mat-menu>
+
+          <a [href]="image.link" target="_blank" class="imgram-button-link">
+            <button mat-button>
+              <mat-icon>open_in_new</mat-icon>
+              OPEN IN IMGUR
+            </button>
+          </a>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+
+  </div>
+  <app-related-images [images]="relatedImages"></app-related-images>
+</div>

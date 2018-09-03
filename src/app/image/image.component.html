@@ -1,0 +1,85 @@
+<div fxLayout="row" fxLayoutAlign="center">
+  <div>
+    <h2>Viral images</h2>
+  </div>
+  <div fxFlex=""></div>
+  <div fxFlexAlign="center" id="view-mode__selector">
+    <span matTooltip="Set view mode to grid" [class]="viewMode === 'grid' ? 'selected' : ''" (click)="setViewMode('grid')">
+      <mat-icon>grid_on</mat-icon>
+    </span>
+    <span matTooltip="Set view mode to list"  [class]="viewMode === 'list' ? 'selected' : ''" (click)="setViewMode('list')">
+      <mat-icon>list</mat-icon>
+    </span>
+  </div>
+</div>
+
+<div *ngIf="isLoading">
+  <mat-spinner></mat-spinner>
+</div>
+
+<div *ngIf="errorMsg">
+  <h2 class="imgram-error">Ooops.. an error occurred:</h2>
+  <p class="imgram-error">
+    {{errorMsg}}
+  </p>
+</div>
+
+<!--<app-error-message [errorMsg]="errorMsg"></app-error-message>-->
+
+<div *ngIf="viewMode === 'grid' && !isLoading && !errorMsg">
+  <mat-grid-list [cols]="gridColCount" [rowHeight]="thumbnailWidth">
+    <mat-grid-tile
+      class="photo-tile hover-hand"
+      [title]="img.title"
+      routerLink="details/{{img.id}}"
+      *ngFor="let img of images"
+      [colspan]="1"
+      [rowspan]="1">
+      <img [src]="getThumbnail(img)"/>
+
+
+    </mat-grid-tile>
+  </mat-grid-list>
+
+  <div fxLayoutAlign="center none" id="load-more__container" fxLayout="column" fxFlexAlign="center center">
+    <div fxFlexAlign="center">
+    <button [disabled]="isLoadingMoreImages" mat-flat-button color="primary" (click)="loadMoreToGrid()">Load more</button>
+    </div>
+    <div fxFlexAlign="center">
+    <span *ngIf="isLoadingMoreImages"><mat-spinner [diameter]="40"></mat-spinner></span>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="viewMode === 'list' && !isLoading" class="mat-elevation-z8">
+  <table mat-table [dataSource]="listImages" class="photos-table">
+
+    <!-- Photo Column -->
+    <ng-container matColumnDef="photo">
+      <th mat-header-cell *matHeaderCellDef> Photo </th>
+      <td mat-cell *matCellDef="let element"><a routerLink="details/{{element.id}}"><img [src]="getThumbnail(element, 's')"></a> </td>
+    </ng-container>
+
+    <!-- Title Column -->
+    <ng-container matColumnDef="title">
+      <th mat-header-cell *matHeaderCellDef> <span class="table-text">Title</span> </th>
+      <td mat-cell *matCellDef="let element"> <span class="table-text">{{element.title}}</span></td>
+    </ng-container>
+
+    <!-- User Column -->
+    <ng-container matColumnDef="open">
+      <th mat-header-cell *matHeaderCellDef><span class="table-text">Open</span> </th>
+      <td mat-cell *matCellDef="let element"> <span routerLink="details/{{element.id}}" class="table-text"><mat-icon class="view-icon">pageview</mat-icon></span></td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+
+  <mat-paginator [length]="5000"
+                 [pageSize]="pageSize"
+                 [pageSizeOptions]="pageSizeOptions"
+                 (page)="onPaginateChange($event)">
+  </mat-paginator>
+
+</div>
