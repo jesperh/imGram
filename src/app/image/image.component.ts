@@ -20,7 +20,7 @@ export class ImageComponent implements OnInit {
   thumbnailWidth = 150;
   gridColCount = 8;
   currentPage = 1;
-  viewMode: 'grid'|'list' = 'list';
+  viewMode: 'grid'|'list' = 'grid';
   displayedColumns: string[] = ['photo', 'title', 'open'];
   pageSize = 10;
   pageSizeOptions: number[] = [10];
